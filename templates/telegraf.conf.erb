@@ -4,7 +4,7 @@
 #
 <% if @global_tags -%>
 [global_tags]
-<%   @global_tags.sort.each do |key, value| -%>
+<%   @global_tags.each do |key, value| -%>
   <%= key %> = "<%= value %>"
 <%   end -%>
 <% end -%>
@@ -28,10 +28,10 @@
 #
 # OUTPUTS:
 #
-<%   @_outputs.sort.each do | output, options | -%>
+<%   @_outputs.each do | output, options | -%>
 [[outputs.<%= output %>]]
 <%      unless options == nil -%>
-<%          options.sort.each do | option, value | -%>
+<%          options.each do | option, value | -%>
   <%= option -%> = <% if value.is_a?(String) %>"<%= value %>"<% elsif value.is_a?(Array) %><%= value.inspect %><% else %><%= value %><% end %>
 <%          end -%>
 <%      end -%>
@@ -42,10 +42,10 @@
 #
 # INPUTS:
 #
-<%   @_inputs.sort.each do | input, options | -%>
+<%   @_inputs.each do | input, options | -%>
 [[inputs.<%= input %>]]
 <%      unless options == nil -%>
-<%          options.sort.each do | option, value | -%>
+<%          options.each do | option, value | -%>
   <%= option -%> = <% if value.is_a?(String) %>"<%= value %>"<% elsif value.is_a?(Array) %><%= value.inspect %><% else %><%= value %><% end %>
 <%          end -%>
 <%      end -%>

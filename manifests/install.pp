@@ -13,7 +13,6 @@ class telegraf::install {
     case $::osfamily {
       'Debian': {
         apt::source { 'influxdata':
-          comment  => 'Mirror for InfluxData packages',
           location => "https://repos.influxdata.com/${_operatingsystem}",
           release  => $::lsbdistcodename,
           repos    => $::telegraf::repo_type,
